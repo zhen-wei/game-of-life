@@ -16,13 +16,13 @@ The demo runs WebAssembly (wasm) in a web worker and performs off-screen renderi
 - Using [pixi.js](https://pixijs.com/) for WebGPU/WebGL rendering.
 - Try using [unocss](https://unocss.dev/) for styling in small exercises.
 
-
 ## Getting Started
 
 To build the WebAssembly module, use the following command:
 
 ```bash
-wasm-pack build --target web --reference-types --weak-refs
+cargo build --release \
+&& wasm-bindgen --target web --out-dir pkg ./target/wasm32-unknown-unknown/release/game_of_life.wasm
 ```
 
 Next, navigate to the web directory, install dependencies, and run the demo:
