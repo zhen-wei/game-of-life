@@ -1,0 +1,10 @@
+
+preferWorkspacePackages: true
+linkWorkspacePackages: true
+savePrefix: ''
+
+packages:
+  - packages/*
+
+ignoredBuiltDependencies:
+  - esbuild

@@ -28,19 +28,15 @@ jobs:
           check-latest: true
           cache: 'pnpm'
           cache-dependency-path: ./web/pnpm-lock.yaml
-      - name: Build Wasm
-        run: |
-          cargo install wasm-pack
-          wasm-pack build --target web --reference-types --weak-refs
       - name: Build Web
         run: |
-          cd ./web
+          cargo install wasm-bindgen-cli
           pnpm install
           pnpm run build
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./web/dist
+          path: ./packages/web/dist
   deploy:
     needs: build
     runs-on: ubuntu-latest

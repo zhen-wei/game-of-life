@@ -1,14 +1,7 @@
+import init, { Universe } from '@game-of-life/engine';
 import type { ColorSource, Renderer } from 'pixi.js';
-import  {
-    DOMAdapter,
-    WebWorkerAdapter,
-    Application,
-    Graphics,
-    Container,
-    Sprite
-} from 'pixi.js';
+import { DOMAdapter, WebWorkerAdapter, Application, Graphics, Container, Sprite } from 'pixi.js';
 // import { Application, Graphics, Container, Sprite } from '@pixi/webworker';
-import init, { Universe } from '../../pkg/game_of_life.js';
 import type { InitPayload, MsgData, TogglePayload } from './payload.js';
 import { createMsgData, MsgDataEnum } from './payload.js';
 
@@ -25,9 +18,7 @@ function startTick() {
 }
 
 function createRectTexture(renderer: Renderer, color: ColorSource, size: number) {
-    const graphics = new Graphics()
-        .rect(0, 0, size, size)
-        .fill(color);
+    const graphics = new Graphics().rect(0, 0, size, size).fill(color);
     const texture = renderer.generateTexture(graphics);
     graphics.destroy();
     return texture;
@@ -41,7 +32,7 @@ async function start(initPayload: InitPayload): Promise<void> {
         app.init({
             canvas: canvas,
             hello: true,
-        })
+        }),
     ]);
 
     app.renderer.background.color = deadColor;

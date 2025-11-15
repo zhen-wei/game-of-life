@@ -1,0 +1,22 @@
+{
+    "name": "game-of-life",
+    "version": "1.0.0",
+    "description": "wasm learning",
+    "main": "index.js",
+    "type": "module",
+    "private": false,
+    "scripts": {
+        "dev": "turbo run dev",
+        "build": "turbo run build",
+        "format": "prettier . --write"
+    },
+    "keywords": [],
+    "author": "zhen-wei",
+    "license": "MIT",
+    "packageManager": "pnpm@10.22.0",
+    "devDependencies": {
+        "prettier": "^3.6.2",
+        "prettier-plugin-tailwindcss": "^0.7.1",
+        "turbo": "^2.6.1"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@game-of-life/engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/game_of_life_engine.js",
+  "types": "./dist/game_of_life_engine.d.ts",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "dev": "pnpm build",
+    "build": "cargo build --release && wasm-bindgen --target web --out-dir ./dist ./target/wasm32-unknown-unknown/release/game_of_life_engine.wasm"
+  },
+  "keywords": [],
+  "author": "zhen-wei",
+  "license": "MIT"
+}
