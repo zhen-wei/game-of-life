@@ -21,7 +21,7 @@ export interface TogglePayload {
 
 export interface MsgDataMap {
     [MsgDataEnum.init]: InitPayload;
-    [MsgDataEnum.render]: Number;
+    [MsgDataEnum.render]: number;
     [MsgDataEnum.toggle]: TogglePayload;
     [MsgDataEnum.pause]: boolean;
 }
