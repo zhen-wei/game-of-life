@@ -4,6 +4,11 @@
         "build": {
             "dependsOn": ["^build"],
             "outputs": ["dist/**"]
+        },
+        "preview": {
+            "dependsOn": ["build"],
+            "persistent": true,
+            "cache": false
         }
     }
 }
