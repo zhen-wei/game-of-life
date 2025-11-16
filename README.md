@@ -16,7 +16,7 @@ The demo runs WebAssembly (wasm) in a web worker and performs off-screen renderi
 
 - Utilizes WebAssembly and offscreen rendering in a worker for improved performance.
 - Using [pixi.js](https://pixijs.com/) for WebGPU/WebGL rendering.
-- Try using [unocss](https://unocss.dev/) for styling in small exercises.
+- Try using [Tailwind CSS](https://tailwindcss.com/) for styling in small exercises.
 - Using [Turbo](https://turborepo.com/) to unify Rust (WASM) and JS builds for faster, simpler workflows.
 
 ## Getting Started
@@ -30,9 +30,9 @@ pnpm run dev
 
 Ensure that your browser supports OffscreenCanvas, WebGL, and wasm simd. The following browser versions are recommended:
 
-- Chrome: >= 91
+- Chrome: >= 111
 - Safari: >= 17
-- Firefox: >= 105
+- Firefox: >= 128
 
 > Can I use: https://caniuse.com/offscreencanvas
 >

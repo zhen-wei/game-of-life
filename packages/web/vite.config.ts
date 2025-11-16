@@ -1,8 +1,8 @@
-import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-    plugins: [UnoCSS()],
+    plugins: [tailwindcss()],
     base: './',
     server: {
         headers: {

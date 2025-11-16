@@ -1,4 +1,3 @@
-import 'virtual:uno.css';
 import type { MsgData } from './payload.js';
 import { createMsgData, MsgDataEnum } from './payload.js';
 

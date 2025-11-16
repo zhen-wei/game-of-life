@@ -4,15 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>wasm-game-of-life</title>
+        <link href="./src/style.css" rel="stylesheet" />
         <script type="module" src="./src/index.ts"></script>
     </head>
 
     <body class="bg-light-900 select-none">
         <div class="mt-2 flex flex-col items-center">
             <div class="text-2xl text-indigo-600">
-                <span class="i-svg-spinners:blocks-wave inline-block"></span>
+                <span class="icon-[svg-spinners--blocks-wave]"></span>
                 <span>FPS: </span>
-                <span id="fpsDisplay" class="w-60px inline-block">0</span>
+                <span id="fpsDisplay" class="w-16 inline-block">0</span>
             </div>
             <button
                 id="controlButton"

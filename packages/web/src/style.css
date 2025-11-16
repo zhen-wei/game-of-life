@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+@plugin '@iconify/tailwind4' {
+    prefixes: svg-spinners;
+}
