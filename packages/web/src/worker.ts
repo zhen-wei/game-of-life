@@ -1,7 +1,6 @@
 import init, { Universe } from '@game-of-life/engine';
 import type { ColorSource, Renderer } from 'pixi.js';
-import { DOMAdapter, WebWorkerAdapter, Application, Graphics, Container, Sprite } from 'pixi.js';
-// import { Application, Graphics, Container, Sprite } from '@pixi/webworker';
+import { DOMAdapter, WebWorkerAdapter, Application, Graphics, ParticleContainer, Particle } from 'pixi.js';
 import type { InitPayload, MsgData, TogglePayload } from './payload.js';
 import { createMsgData, MsgDataEnum } from './payload.js';
 
@@ -32,6 +31,7 @@ async function start(initPayload: InitPayload): Promise<void> {
         app.init({
             canvas: canvas,
             hello: true,
+            preference: 'webgpu',
         }),
     ]);
 
@@ -41,16 +41,22 @@ async function start(initPayload: InitPayload): Promise<void> {
     const maxSize = width * height;
     const texture = createRectTexture(app.renderer, aliveColor, cellSize);
 
-    const sprites = new Container({
+    const sprites = new ParticleContainer({
         isRenderGroup: true,
+        dynamicProperties: {
+            position: false,
+            color: true,
+        },
     });
     for (let i = 0; i < maxSize; i++) {
-        const cell = new Sprite(texture);
         const row = Math.floor(i / width);
         const col = i % width;
-        cell.position.set(col * (cellSize + 1) + 1, row * (cellSize + 1) + 1);
-        cell.alpha = 0;
-        sprites.addChild(cell);
+        const cell = new Particle({
+            texture: texture,
+            x: col * (cellSize + 1) + 1,
+            y: row * (cellSize + 1) + 1,
+        });
+        sprites.addParticle(cell);
     }
     app.stage.addChild(sprites);
 
@@ -59,7 +65,7 @@ async function start(initPayload: InitPayload): Promise<void> {
     const drawCells = () => {
         const cells = universe.cells();
         for (let i = 0; i < cells.length; i++) {
-            sprites.children[i].alpha = cells[i];
+            sprites.particleChildren[i].color = cells[i] ? 0xffffffff : 0x0;
         }
     };
     app.ticker.add(() => {
